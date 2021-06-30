@@ -41,7 +41,7 @@ if [[ ${superCode} == ${sSC} ]];then
 	exit 0
 else
 	echo " Visit this link for pass code..."
-	echo "🔗 https://github.com/princekrvert/T_log.git"
+	echo "🔗 https://github.com/princekrvert/T_log/blob/main/.Tlog/supercode"
 	sleep 3
 	superUser
 	exit 1
