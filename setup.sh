@@ -6,7 +6,8 @@
 req(){
   # check for the gum 
   command -v gum || pkg install gum 
-  # now check for the openssl 
+  # now check for the neofetch 
+  commnad -v neofetch || {pkg install neofetch;} 
 
 }
 banner(){
@@ -43,10 +44,10 @@ userPass=$(gum input --placeholder "Enter a password: ")
 userPass_hash=$(echo $userPass | sha256sum)
 echo "${userPass_hash}" > .T_log/userpass
 
-cd 
-cd ..
-cd usr/etc
-echo 'exec ./T_log.sh' >> bash.bashrc
-echo ""
-echo -e "🔐 \e[0;1mUsername and password set sucessfully."
+*cd 
+*cd ..
+*cd usr/etc
+*echo 'exec ./T_log.sh' >> bash.bashrc
+*echo ""
+*echo -e "🔐 \e[0;1mUsername and password set sucessfully."
 

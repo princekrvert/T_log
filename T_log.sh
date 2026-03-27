@@ -55,15 +55,17 @@ fi
 
 userPass(){
 	if [[ -d .T_log ]];then
-		echo -ne "🔒 ${r}Enter the username: "
-		read userName
+		username=$(gum input --placeholder "Enter the user name:")
+		# username is var witout hash compare with hash 
+		userName=$(echo $username | sha256sum) # vaiable with hash 256
 		sUN=$(cat .T_log/username)
 		if [[ ${userName} == ${sUN}  ]];then
-			echo -ne "🔑 ${r}Enter the password: "
-			read userPass
+			userpass=$(gum input --placeholder "Enter the password:")
+			# password without hash 
+			userPass=$(echo $userpass | sha256sum)
 			sUP=$(cat .T_log/userpass)
 			if [[ ${userPass} == ${sUP}  ]];then
-				echo -e "\e[0;1m 👽 Login Sucessfully..."
+				echo -e "\e[0;1m 👽 Welcome "
 			else
 				echo " Login failed.."
 				exit
@@ -86,5 +88,6 @@ userPass(){
 
 
 }
+neofetch
 userPass
 
