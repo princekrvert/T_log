@@ -7,7 +7,7 @@ req(){
   # check for the gum 
   command -v gum || pkg install gum 
   # now check for the neofetch 
-  commnad -v neofetch || {pkg install neofetch} 
+   
 
 }
 banner(){
