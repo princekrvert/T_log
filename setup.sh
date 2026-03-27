@@ -48,13 +48,13 @@ cd ~
 # first check for the shell if it is bash or Zsh 
 if [[ $SHELL == "/data/data/com.termux/files/usr/bin/zsh" ]];then
   # insert the line at the top of file 
-  echo 'exec ./T_log.sh' >> bash.bashrc .zshrc
+  echo './T_log.sh' >> bash.bashrc .zshrc
 
 
 else
   cd ..
 cd usr/etc
-echo 'exec ./T_log.sh' >> bash.bashrc
+echo './T_log.sh' >> bash.bashrc
 echo ""
 
 fi
