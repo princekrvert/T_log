@@ -1,7 +1,14 @@
-#!/data/data/com.termux/files/usr/bin/bash
+#!/usr/bin/env bash
 #Author prince kumar.....
 #Date 29 jun 2021
 #Make a banne function....
+# make a fucntion to check the requirements
+req(){
+  # check for the gum 
+  command -v gum || pkg install gum 
+  # now check for the openssl 
+
+}
 banner(){
 	echo -e "\e[35;1m"
 	echo -e "
@@ -16,6 +23,7 @@ _________   _        _______  _______
      (_____) \e[32;1m ✍ Made by prince 🙏
      "
 }
+req
 banner
 chmod +x T_log.sh
 cp T_log.sh ~
@@ -27,17 +35,18 @@ if [[ -d .T_log ]];then
 else
 	mkdir .T_log
 fi
-echo -e "🔒 Enter the username: "
-read userName
-echo "${userName}" > .T_log/username
+username=$(gum input --placeholder "Enter a username: ")
+# hash the username using sha256sum
+username_hash=$(echo $username | sha256sum)
+echo "${username_hash}" > .T_log/username
+userPass=$(gum input --placeholder "Enter a password: ")
+userPass_hash=$(echo $userPass | sha256sum)
+echo "${userPass_hash}" > .T_log/userpass
 
-echo -e "🔑\e[35;1mEnter the password: "
-read userPass
-echo "${userPass}" > .T_log/userpass
-cd 
-cd ..
-cd usr/etc
-echo './T_log.sh' >> bash.bashrc
-echo ""
-echo -e "🔐 \e[0;1mUsername and password set sucessfully."
-
+#cd 
+#cd ..
+#cd usr/etc
+#echo 'exec ./T_log.sh' >> bash.bashrc
+#echo ""
+#echo -e "🔐 \e[0;1mUsername and password set sucessfully."
+#
