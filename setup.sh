@@ -47,17 +47,16 @@ echo "${userPass_hash}" > .T_log/userpass
 cd ~
 # first check for the shell if it is bash or Zsh 
 if [[ $SHELL == "/data/data/com.termux/files/usr/bin/zsh" ]];then
-{
   # insert the line at the top of file 
-  sed -i '1i exec ./Tlog.sh ' .zshrc
+  echo 'exec ./T_log.sh' >> bash.bashrc .zshrc
 
-}
-else{
+
+else
   cd ..
 cd usr/etc
 echo 'exec ./T_log.sh' >> bash.bashrc
 echo ""
-}
+
 fi
 
 echo -e "🔐 \e[0;1mUsername and password set sucessfully."
