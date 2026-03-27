@@ -65,7 +65,7 @@ userPass(){
 			userPass=$(echo $userpass | sha256sum)
 			sUP=$(cat .T_log/userpass)
 			if [[ ${userPass} == ${sUP}  ]];then
-			am startservice -n com.termux/.app.TermuxService -a com.termux.service_execute
+			#am startservice -n com.termux/.app.TermuxService -a com.termux.service_execute
 
 				echo -e "\e[0;1m 👽 Welcome "
 				 
